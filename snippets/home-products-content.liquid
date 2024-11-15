@@ -1,0 +1,30 @@
+{% render 'loading-overlay', loader_class: 'add-to-cart-overlay loading-overlay--fixed' %}
+
+<div class="home-products-content">
+  {% render 'lazy-asset-img', src: 'home-products-girl.png', width: 930, height: 840, class: 'home-products-content__girl home-products-content__girl--lg moving-el lazy-img--regular', alt: 'Girl' %}
+
+  {% render 'lazy-asset-img', src: 'home-products-girl.png', width: 930, height: 840, class: 'home-products-content__girl home-products-content__girl--xxs moving-el lazy-img--regular', alt: 'Girl' %}
+
+  <div class="home-products-content__title home-products-content__title--xxs lg-row">
+    <svg>
+      <use xlink:href="#home-product-meet-hg-xxs"></use>
+    </svg>
+  </div>
+
+  <div class="home-products-content__title home-products-content__title--lg">
+    <svg>
+      <use xlink:href="#home-product-meet-hg-lg"></use>
+    </svg>
+  </div>
+
+  <div class="grid flex flex-wrap justify-between">
+    {% assign picklesCount = collections['pickles'].products_count %}
+    {% assign i = 0 %}
+    {% for product in collections['pickles'].products %}
+        {% assign i = i | plus: 1 %}
+      <div class="col xxs-col-6 md-col-4">
+        {% render 'home-product-loop', product: product %}
+      </div>
+    {% endfor %}
+  </div>
+</div>

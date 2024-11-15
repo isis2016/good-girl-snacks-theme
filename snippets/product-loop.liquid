@@ -1,0 +1,42 @@
+{% assign product_handle = product.title | handleize %}
+
+<div class="product-loop product-loop--{{ product.title | handleize }} lg-row {{ class }} parent-anim">
+  {% for variant in product.variants %}
+    {% if product_handle contains 'variety-pack' %}
+      {% assign variant_weight = '(2 x 32oz)'  %}
+    {% elsif product_handle contains 'original-dill' or product_handle contains 'honey-harissa' %}
+      {% assign variant_weight =  '(32oz)'  %}
+    {% endif %}
+  {% endfor %}
+
+  <a class="product-loop__link" href="{{ product.url }}">
+    {% if product.tags contains 'free shipping' %}
+      <div class="product-loop__tag">
+        {% render 'lazy-asset-img', src: 'free-shipping.svg', width: 354, height: 196, class: 'lazy-img--regular', alt: 'free shipping' %}
+      </div>
+    {% endif %}
+
+    {% if product_handle contains 'original-dill' %}
+      <div class="product-loop__picto">
+        {% render 'lazy-asset-img', src: 'zesty-tangy.png', width: 526, height: 265, class: 'lazy-img--regular', alt: 'zesty tangy' %}
+      </div>
+    {% elsif product_handle contains 'honey-harissa' %}
+      <div class="product-loop__picto">
+        {% render 'lazy-asset-img', src: 'sweat-heat.png', width: 555, height: 213, class: 'lazy-img--regular', alt: 'sweat heat' %}
+      </div>
+    {% endif %}
+
+    {% render 'lazy-img', src:  product.featured_image, size: '750x1140', width: 750 , height: 1140, class: 'lazy-img--regular product-loop__img product-loop__img--xxs xs-row', alt:  product.featured_image.alt %}
+    {% render 'lazy-img', src:  product.featured_image, size: '1500x', width: 1470, height: 1680, class: 'lazy-img--regular product-loop__img product-loop__img--lg xs-row', alt: product.featured_image.alt %}
+    
+    {% if product.type == blank %}
+      <h2 class="product-loop__title aligncenter sm-row">{{ product.title }} {{ variant_weight }}→</h2>
+    {% else %}
+      <h2 class="product-loop__title aligncenter sm-row">{{ product.type }} - {{ product.title }} →</h2>
+    {% endif %}
+  </a>
+
+  <div class="rotate-children">
+    {%- render 'product-form', product: product,  svg_type: 'loop-product', product_form_id: product.selected_or_first_available_variant.id -%}
+  </div>
+</div>

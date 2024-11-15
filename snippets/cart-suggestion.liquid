@@ -1,0 +1,20 @@
+{% if product.handle == 'original-dill' %}
+  {%- assign targetProductHandle = 'honey-harissa' -%}
+{% elsif product.handle == 'honey-harissa' %}
+  {%- assign targetProductHandle = 'original-dill' -%}
+{% endif %}
+
+{% assign targetProduct = all_products[targetProductHandle] %}
+
+<div class="cart-suggestion flex flex-wrap">
+  <div class="cart-suggestion__img">
+    <a class="img-container" href="{{ targetProduct.url }}">
+      <img src="{{ targetProduct.featured_image | img_url: '750x1140', crop: 'center' }}"  width="750" height="1140" alt="{{targetProduct.featured_image.alt}}" />
+    </a>
+  </div>
+
+  <div class="cart-suggestion__text alignright">
+    <a class="cart-text"  href="{{ targetProduct.url }}">Want to try the<br>{{ targetProduct.title }}?</a>
+    {%- render 'product-form-cart', product: targetProduct, product_form_id: targetedtProduct.selected_or_first_available_variant.id -%}
+  </div>
+</div>

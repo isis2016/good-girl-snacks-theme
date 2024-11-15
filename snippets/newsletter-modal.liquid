@@ -1,0 +1,68 @@
+<section class="newsletter-modal flex flex-wrap justify-center align-center">
+	<div class="newsletter-modal__inner flex flex-column align-start">
+		<button class="newsletter-modal__close">
+      <svg>
+        <use xlink:href="#newsletter-modal-close"></use>
+      </svg>
+		</button>
+
+		<div class="newsletter-modal__picto">
+ 			{% render 'lazy-asset-img', src: 'newsletter-modal-gg-pik.png', width: 648, height: 530, class: 'lazy-img--regular' , alt: 'gg pickle' %}
+		</div>
+
+		{% form 'customer', id: 'newsletter-modal-form', class: 'newsletter-form' %}
+			{%- if form.posted_successfully? == blank -%}
+				<div class="newsletter-modal__text flex flex-column xs-row">
+					<span class="newsletter-modal__title"><i>Hey you!</i></span>
+					<span class="text-1">Be the first to know about product drops, discounts & exclusive info <3</span>
+				</div>
+
+			  <input type="hidden" name="contact[tags]" value="newsletter">
+
+			  <div class="newsletter-form__field-wrapper flex flex-wrap">
+			    <input
+			      type="email"
+			      name="contact[email]"
+			      class=""
+			      value="{{ form.email }}"
+			      aria-required="true"
+			      autocorrect="off"
+			      autocapitalize="off"
+			      autocomplete="email"
+
+			      {% if form.errors %}
+			        autofocus
+			        aria-invalid="true"
+			      {% endif %}
+			      placeholder="Your Email"
+			      required
+			    >
+			    <button type="submit" name="commit" id="Subscribe">Sign up</button>
+			  </div>
+		  {%- endif -%}
+
+		  {%- if form.errors -%}
+		    <div class="xs-row"></div>
+		    <span class="legend-text color-red" id="Newsletter-error--modal">{{ "footer.newsletter_error" | t }}: {{ form.errors.messages['email'] }}</span>
+		  {%- endif -%}
+
+      <div id="newsletter-modal-form__already-registered" class="hidden">
+        <div class="xs-row"></div>
+        <span class="text-1 color-red">You are already subscribed</span>
+      </div>
+      
+      <script>
+        if (window.location.href.includes("?contact%5Btags%5D=newsletter&form_type=customer")) {
+        document.getElementById('newsletter-modal-form__already-registered').classList.remove('hidden');
+        }
+      </script>
+
+
+		  {%- if form.posted_successfully? -%}
+		    <div class="xs-row"></div>
+		    <h3 class="legend-text color-black" id="Newsletter-success--modal" tabindex="-1" autofocus>Thank you ! You have been added to our mailing list</h3>
+        </script>
+		  {%- endif -%}
+		{% endform %}
+	</div>
+</section>

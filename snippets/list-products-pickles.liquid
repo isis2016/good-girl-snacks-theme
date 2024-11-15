@@ -1,0 +1,23 @@
+{% assign picklesCount = collections['pickles'].products_count %}
+
+{%- if picklesCount >= 1 -%}
+  <section class="list-products list-products--pickles section-separator--before-separator">
+    <div class="section-separator__inner grid flex flex-wrap">
+      <h2 class="main-title main-title--bold col xxs-col-12 lg-row">Hot Girl Pickles™</h2>
+
+      <div class="list-products__picto list-products__picto--xxs col xxs-col-6 lg-col-4">
+        {% render 'lazy-asset-img', src: 'pickles.gif', width: 1920, height: 1080, class: 'lazy-img--regular lg-row' , alt: 'pickle boy' %}
+      </div>
+
+      {% for product in collections['pickles'].products %}
+        <div class="col xxs-col-6 lg-col-4">
+          {% render 'product-loop', product: product, class: all_tags %}
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="row list-products__picto list-products__picto--lg">
+      {% render 'lazy-asset-img', src: 'pickles.gif', width: 1920, height: 1080, class: 'lazy-img--regular' , alt: 'pickle boy' %}
+    </div>
+  </section>
+{% endif %}

@@ -1,0 +1,39 @@
+<section class="product-specs lg-row">
+  <header class="product-specs__header flex flex-wrap">
+    <button class="product-specs__btn active">
+      <svg class="product-specs__svg">
+        <use xlink:href="#product-tab"></use>
+      </svg>
+      <span class="product-text product-text--medium color-white">{{ product.metafields.product.spec_title_1.value }}</span>
+    </button>
+
+    <button class="product-specs__btn">
+      <svg class="product-specs__svg">
+        <use xlink:href="#product-tab"></use>
+      </svg>
+      <span class="product-text product-text--medium color-white">{{ product.metafields.product.spec_title_2.value }}</span>
+    </button>
+
+    <button class="product-specs__btn">
+      <svg class="product-specs__svg">
+        <use xlink:href="#product-tab"></use>
+      </svg>
+      <span class="product-text product-text--medium color-white">{{ product.metafields.product.spec_title_3.value }}</span>
+    </button>
+  </header>
+
+  <div class="product-specs__main">
+    <div class="product-specs__content product-text product-text--regular active">
+      {{ product.metafields.product.spec_content_1.value }}
+    </div>
+
+    <div class="product-specs__content product-text product-text--regular">
+      {{ product.metafields.product.spec_content_2.value }}
+    </div>
+
+    <div class="product-specs__content product-text product-text--regular">
+      {{ product.metafields.product.spec_content_3.value }}
+    </div>
+  </div>
+
+</section>

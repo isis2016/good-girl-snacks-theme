@@ -1,0 +1,51 @@
+{% assign header_class = '' %}
+
+{% if template.name == 'collection' %}
+  {% if collections['pickles'].products_count == 0 %}
+    {% assign header_class = 'site-header--fixed' %}
+  {% endif %}
+{% endif %}
+
+{% if template.name == 'index'%}
+  {% assign header_class = 'site-header--fixed' %}
+{% endif %}
+
+<header class="site-header {{ header_class }}">
+  <div class="site-header__inner row align-center">
+    <div class="site-header__burger-container">
+    <button
+        class="site-header__burger"
+        aria-label="toggle mobile menu"
+        onclick="document.querySelector('menu-drawer').open()"
+        >
+        <svg>
+          <use xlink:href="#burger"></use>
+        </svg>
+      </button>
+    </div>
+
+    {% render 'site-menu-lg' %}
+
+    <div class="site-header__cart-toggle-container rotate-anim">
+      <button
+        class="cart-toggle "
+        aria-label="toggle cart"
+        {% if template != 'cart' %}
+          onclick="document.querySelector('cart-drawer').open()"
+        {% endif %}
+      >
+        <span class="hide-text">{{ 'header.cart_title' | t }}</span>
+
+        <span class="cart-toggle__count" id="cart-count">{{ cart.item_count }}</span>
+
+        <svg class="cart-toggle__svg cart-toggle__svg--xxs">
+          <use xlink:href="#cart-xxs"></use>
+        </svg>
+
+        <svg class="cart-toggle__svg cart-toggle__svg--lg">
+          <use xlink:href="#cart-lg"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>

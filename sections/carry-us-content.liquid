@@ -1,0 +1,10 @@
+<section class="site-section site-section--bottom grid flex flex-wrap ">
+  <div class="col xxs-col-12 md-row">
+  	<h1 class="main-title main-title--bigger main-title--bold color-yellow md-row">{{ page.title | escape }}</h1>
+    <div class="carry-us-text regular-text regular-text--semi-bold color-yellow">{{ page.content | newline_to_br }}</div>
+	</div>
+
+	<div class="col xxs-col-12">
+		{% render 'carry-us-form' %}
+	</div>
+</section>

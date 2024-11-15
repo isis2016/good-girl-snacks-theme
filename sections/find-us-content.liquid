@@ -1,0 +1,147 @@
+{% assign i = 0 %}
+
+<div class="section-separator section-separator--before-separator-big">
+	<div class="grid flex flex-wrap">
+	  <div class="col xxs-col-12 md-row">
+	  	<h1 class="main-title main-title--bold color-yellow md-row">{{ page.title | escape }}</h1>
+	    <div class="regular-text regular-text--regular color-yellow">{{ page.content | newline_to_br }}</div>
+		</div>
+
+  	{% render 'lazy-asset-img', src: 'find-us-falling-girl.png', width: 708, height: 559, class: 'find-us-falling-girl find-us-falling-girl--sm moving-el lazy-img--regular', alt: 'Girl' %}
+	</div>
+
+
+	<div class="section-separator__inner grid flex flex-wrap justify-between align-start">
+		{% for block in section.blocks %}
+			{% assign i = i | plus:1 %}
+			<div class="find-us__town col xxs-col-12 sm-col-5 align-start">
+				{% if i == 2 %}
+	  		{% render 'lazy-asset-img', src: 'find-us-falling-girl.png', width: 708, height: 559, class: 'find-us-falling-girl find-us-falling-girl--xxs moving-el lazy-img--regular', alt: 'Girl' %}
+	  		{% endif %}
+
+				{% if block.settings.town-title != blank %}
+					<h2 class="find-us__town-title regular-text regular-text--bold color-yellow"><i>{{ block.settings.town-title }}</i></h2>
+				{% endif %}
+
+				<div class="find-us__logos container flex flex-wrap">
+					{% if block.settings.shop_1_img != blank %}
+					<a class="find-us__logo" href="{{ block.settings.shop_1_url }}" target="_blank">
+				  	{% render 'lazy-img', src:block.settings.shop_1_img, size: '1000x1000', width: 1000, height: 1000, class: 'lazy-img--regular', alt:block.settings.shop_1_img.alt %}
+				  </a>
+					{% endif %}
+
+					{% if block.settings.shop_2_img != blank %}
+					<a class="find-us__logo" href="{{ block.settings.shop_2_url }}" target="_blank">
+				  	{% render 'lazy-img', src:block.settings.shop_2_img, size: '1000x1000', width: 1000, height: 1000, class: 'lazy-img--regular', alt:block.settings.shop_2_img.alt %}
+				  </a>
+					{% endif %}
+
+					{% if block.settings.shop_3_img != blank %}
+					<a class="find-us__logo" href="{{ block.settings.shop_3_url }}" target="_blank">
+				  	{% render 'lazy-img', src:block.settings.shop_3_img, size: '1000x1000', width: 1000, height: 1000, class: 'lazy-img--regular', alt:block.settings.shop_3_img.alt %}
+				  </a>
+					{% endif %}
+
+					{% if block.settings.shop_4_img != blank %}
+					<a class="find-us__logo" href="{{ block.settings.shop_4_url }}" target="_blank">
+				  	{% render 'lazy-img', src:block.settings.shop_4_img, size: '1000x1000', width: 1000, height: 1000, class: 'lazy-img--regular', alt:block.settings.shop_4_img.alt %}
+				  </a>
+					{% endif %}
+
+
+					{% if block.settings.shop_5_img != blank %}
+					<a class="find-us__logo" href="{{ block.settings.shop_5_url }}" target="_blank">
+				  	{% render 'lazy-img', src:block.settings.shop_5_img, size: '1000x1000', width: 1000, height: 1000, class: 'lazy-img--regular', alt:block.settings.shop_5_img.alt %}
+				  </a>
+					{% endif %}
+
+					{% if block.settings.shop_6_img != blank %}
+					<a class="find-us__logo" href="{{ block.settings.shop_6_url }}" target="_blank">
+				  	{% render 'lazy-img', src:block.settings.shop_6_img, size: '1000x1000', width: 1000, height: 1000, class: 'lazy-img--regular', alt:block.settings.shop_6_img.alt %}
+				  </a>
+					{% endif %}
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</div>
+{% schema %}
+{
+  "tag": "section",
+  "name": "Find us",
+  "class": "find-us",
+	"blocks": [
+	  {
+	    "name": "Towns",
+	    "type": "towns",
+	    "settings": [
+	      {
+	        "label": "Town Title",
+	        "id": "town-title",
+	        "type": "text"
+	      },
+	      {
+	        "label": "Shop 1 image (png format, 1000px*1000px, center logo in the square)",
+	        "id": "shop_1_img",
+	        "type": "image_picker"
+	      },
+	      {
+	        "label": "Shop 1 url",
+	        "id": "shop_1_url",
+	        "type": "url"
+	      },
+	      {
+	        "label": "Shop 2 image (png format, 1000px*1000px, center logo in the square)",
+	        "id": "shop_2_img",
+	        "type": "image_picker"
+	      },
+	      {
+	        "label": "Shop 2 url",
+	        "id": "shop_2_url",
+	        "type": "url"
+	      },
+	      {
+	        "label": "Shop 3 image (png format, 1000px*1000px, center logo in the square)",
+	        "id": "shop_3_img",
+	        "type": "image_picker"
+	      },
+	      {
+	        "label": "Shop 3 url",
+	        "id": "shop_3_url",
+	        "type": "url"
+	      },
+	      {
+	        "label": "Shop 4 image (png format, 1000px*1000px, center logo in the square)",
+	        "id": "shop_4_img",
+	        "type": "image_picker"
+	      },
+	      {
+	        "label": "Shop 4 url",
+	        "id": "shop_4_url",
+	        "type": "url"
+	      },
+	      {
+	        "label": "Shop 5 image (png format, 1000px*1000px, center logo in the square)",
+	        "id": "shop_5_img",
+	        "type": "image_picker"
+	      },
+	      {
+	        "label": "Shop 5 url",
+	        "id": "shop_5_url",
+	        "type": "url"
+	      },
+	      {
+	        "label": "Shop 6 image (png format, 1000px*1000px, center logo in the square)",
+	        "id": "shop_6_img",
+	        "type": "image_picker"
+	      },
+	      {
+	        "label": "Shop 6 url",
+	        "id": "shop_6_url",
+	        "type": "url"
+	      }
+	    ]
+	  }
+	]
+}
+{% endschema %}

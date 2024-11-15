@@ -1,0 +1,24 @@
+{
+  "sections": {
+    "about-content": {
+      "type": "about-content",
+      "settings": {
+        "why-title": "Why  good girl snacks ™ and why Hot Girl Pickles ™? ",
+        "why-text": "The company and product name are communicating a mindset VS a physical state. The trends online following ‘hot girl walks’, ‘girl dinners’ etc. are used as adjectives to describe tapping into female energy to fuel an activity that ameliorates our day to day. We wanted to do the same with our snacks, we want them to fuel your pickle addiction, we want them to make you happy. We invite everyone and anyone to tap into the hot girl energy we know you all harness.",
+        "story-title": "Our Story",
+        "story-baseline": "We made good girl snacks™ for you, and for us!",
+        "story-1": "Leah and Yasaman met in college and have been inseparable ever since. Throughout their whole friendship, and really, sisterhood, the two have always connected deeply through their shared Middle Eastern backgrounds. With a blend of Persian, Egyptian and Tunisian cultures between them, their love for the flavors of their origins transcends with good girl snacks™.",
+        "story-2": "Snack enthusiasts themselves, obviously, the pair have found a community within Gen Z that seems to thrive off of food fixations, food trends and really, anything a hot girl says is yummy on TikTok. \n\nScrolling through TikTok daily, Leah and Yasaman found a recurring theme with pickles and pickle-forward recipes trending online. Both noticed that the pickles they were buying themselves, along with the ones showing up on their socials, didn’t follow Gen Z friendly packaging nor did they hold up with their values of eating clean and organic ingredients. ",
+        "story-3": "Both had always dreamed of starting a snacks company together, and continuing to live life together as partners in crime! They quit their jobs and made it their mission to offer a product Gen Z is sure to obsess over. \n\nFlavor innovation and unprecedented branding will make you fall in love with their first crunchy, tangy product: their Hot Girl Pickles™.",
+        "founders-title-first-row": "From our",
+        "founders-title-second-row": "Founders ",
+        "founders-text": "“We made these snacks for us as much as we did for our fellow Gen-Z food enthusiasts. We wanted everyone to obsess over new, never-been-done-before pickle flavors AND the excitement of a new and fresh brand in an aisle that hasn’t been revolutionized in years. On top of that, we want good girl snacks™ to inspire other young women to start their own companies, and to feel empowered to do so!”",
+        "founders-signature": "Leah & Yasaman",
+        "founders": "shopify:\/\/shop_images\/image-founders.jpg"
+      }
+    }
+  },
+  "order": [
+    "about-content"
+  ]
+}

@@ -1,0 +1,44 @@
+{% assign special_title = product.title | split: " – " %}
+{% assign first_part = special_title[0] %}
+{% assign second_part = special_title[1] %}
+
+<section class="main-product main-product--merch section-separator--before-separator-big" data-section="{{ section.id }}">
+  <div class="section-separator__inner grid flex flex-wrap align-start">
+    <div class="main-product__slider col xxs-col-12 sm-col-8 lg-col-5">
+      {% render 'product-slider' %}
+      <div class="main-product__infos main-product__infos--xxs flex flex-wrap">
+        <h2 class="main-product__title main-title main-title--bold">
+          {{ first_part }}<br><span class="main-title--regular">{{ second_part }}</span>
+        </h2>
+        {%- render 'product-form', product: product, svg_type: 'main-product-merch', product_form_id: product_form_id  -%}
+      </div>
+    </div>
+
+    <div class="main-product__infos main-product__infos--lg col xxs-col-12 sm-col-8 lg-col-7">
+      <div class="main-product__text">
+        <h2 class="main-product__title main-title main-title--bold">
+          {{ first_part }}<br><span class="main-title--regular">{{ second_part }}</span>
+        </h2>
+
+        <div class="main-product__description product-text lg-row">
+          <div class="md-row">{{ product.description }}</div>
+          <div id="ps__bis_target_container"></div>
+        </div>
+
+        {% render 'product-variant-picker', product: product, product_form_id: product_form_id %}
+
+        {% render 'product-form', product: product, svg_type: 'main-product-merch', product_form_id: product_form_id  %}
+        {% if product.metafields.global.details.value != blank %}
+        <div class="main-product__details">
+          <div class="sm-row"></div>
+          <span class="product-info product-info--semi-bold">{{ product.metafields.global.details.value }}</span>
+        </div>
+        {% endif %}
+        {% render 'lazy-asset-img', src: 'single-product-merch.png', width: 156, height: 151, class: 'lazy-img--regular main-product__picto xl-row', alt: 'pickle girl' %}
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    

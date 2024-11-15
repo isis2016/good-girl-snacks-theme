@@ -1,0 +1,17 @@
+<section class="home-hot-girls-marquee section-separator">
+  <div class="section-separator__inner">
+    {% render 'separator-xxs', class: 'section-separator__item--top-xxs', number: '2-', color: 'green-merch', width: 1560 , height: 484 %}
+    {% render 'separator-lg', class: 'section-separator__item--top-lg', number: '1-', color: 'green-merch', width: 4602 , height: 474 %}
+    {% render 'home-hot-girls-auto-scroller' %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "tag": "section",
+  "name": "Hot girls marquee",
+  "class": "home-hot-girls-marquee-container",
+  "settings": [
+  ]
+}
+{% endschema %}

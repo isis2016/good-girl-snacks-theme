@@ -1,0 +1,55 @@
+{% assign product_handle = product.title | handleize %}
+
+{% if product_handle contains 'variety-pack' %}
+  {% assign svg_type = 'home-add-to-cart-variety-pack' %}
+  {% assign bold_text = 'Why choose when you can have it all?' %}
+  {% assign desc_text = 'Get your crunch fix with a tangy twist on the Original Dill and your sweet heat from our Honey Harissa flavor.' %}
+{% elsif product_handle contains 'original-dill' %}
+  {% assign svg_type = 'home-add-to-cart-original-dill' %}
+  {% assign bold_text = 'A daily fave.' %}
+  {% assign desc_text = 'Little bit of tang, little bit of zest from our turmeric twist, and a whole lot of crunch with each savory bite. Our take on the all-adorned classic dill pickle.' %}
+{% elsif product_handle contains 'honey-harissa' %}
+  {% assign svg_type = 'home-add-to-cart-honey-harissa' %}
+  {% assign bold_text = 'It’s getting hot in here…' %}
+  {% assign desc_text = 'Love at first bite with each crunch, following a soft sweetness from our tropical blossom honey and a spicy kick from the bold spiced flavor of harissa.' %}
+{% elsif product_handle contains 'hot-girls-eat-pickles-corduroy-black-dad-hat' %}
+  {% assign svg_type = 'home-add-to-cart-honey-harissa' %}
+  {% assign bold_text = 'It’s getting hot in here…' %}
+  {% assign desc_text = 'Love at first bite with each crunch, following a soft sweetness from our tropical blossom honey and a spicy kick from the bold spiced flavor of harissa.' %}
+{% endif %}
+
+<div class="home-product-loop home-product-loop--{{ product_handle }} parent-anim">
+  <a class="home-product-loop__link block" href="{{ product.url }}" title="go to {{ product.title }}">
+    <div class="home-product-loop__img-container">
+      {% render 'lazy-img', src: product.featured_image, size: '980x1180', width: 980 , height: 1180, class: 'lazy-img--regular home-product-loop__img xs-row', alt:  product.featured_image.alt %} 
+      {% if product_handle contains 'variety-pack' %}
+        <div class="home-product-loop__discount">
+          <svg>
+            <use xlink:href="#10-percent-off"></use>
+          </svg>
+        </div>
+      {% elsif product_handle contains 'original-dill' %}
+        <div class="home-product-loop__baseline">
+          {% render 'lazy-asset-img', src: 'organic-crunchy.png', width: 528, height: 255, class: 'lazy-img--regular', alt: 'organic crunchy' %}
+        </div>
+
+      {% elsif product_handle contains 'honey-harissa' %}
+        <div class="home-product-loop__baseline">
+          {% render 'lazy-asset-img', src: 'sweat-heat.png', width: 555, height: 213, class: 'lazy-img--regular', alt: 'sweat heat' %}
+        </div>
+      {% endif %}
+    </div>
+  </a>  
+  
+  <div class="rotate-children">
+    {%- render 'product-form', product: product, svg_type: svg_type, product_form_id: '' -%}
+  </div>
+
+  <a class="" href="{{ product.url }}" title="go to {{ product.title }}">
+    <div class="">
+      <h4 class="home-product-loop__text home-product-loop__text--x-bold sm-row aligncenter italic">{{ bold_text }}</h4>
+      <div class="home-product-loop__text home-product-loop__text--semi-bold aligncenter">{{ desc_text }}</div>
+    </div>
+  </a>
+
+</div>

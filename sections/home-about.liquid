@@ -1,0 +1,66 @@
+<section class="home-about section-separator section-separator--top section-separator--before-separator-big section-separator--yellow">
+  <div class="section-separator__inner">
+    {% render 'separator-lg', class: 'section-separator__item--top-lg', number: '1-', color: 'yellow', width: 4602 , height: 474 %}
+
+    {% render 'lazy-asset-img', src: 'home-about-2.jpg', width: 887, height: 1000, class: 'home-about__lifestyle home-about__lifestyle--xxs lazy-img--regular ', alt: 'lifestyle' %}
+
+    <h3 class="row big-title uppercase md-row"><span class="color-purple">WE&nbsp;</span><span class="color-pink">HEARD&nbsp;</span><span class="color-purple">YOU!</span></h3>
+
+    <section class="grid flex flex-wrap">
+      <div class="col xxs-col-12 lg-col-6 lg-row">
+        <div class="home-about-bubble-container md-row">
+          {% render 'lazy-asset-img', src: 'home-about-bubble-xxs.svg', width: 332, height: 274, class: 'lazy-img--regular home-about-bubble home-about-bubble--xxs', alt: 'bubble' %}
+          {% render 'lazy-asset-img', src: 'home-about-bubble-lg.svg', width: 789, height: 391, class: 'lazy-img--regular home-about-bubble home-about-bubble--lg', alt: 'bubble' %}
+
+          <div class="home-about-bubble__text">
+            We know <strong>hot girls eat pickles</strong>, and <i>you deserved</i> a pickle that is <strong>equally as hot</strong>. We stepped in, with <strong>NEW FLAVORS, ORGANIC ingredients</strong> and packaging that’s sure to make your <strong>weekly pickle</strong> purchase all the <strong>more exciting</strong>. We took your <strong>already-adored all-American pickle</strong> and paired it with <strong>new, innovative, flavors</strong> which are sure to get your <strong>taste buds tingling</strong>.
+          </div>
+
+          <a class="home-about__cta rotate-anim" href="{{ pages['our-story'].url }}">
+            <svg>
+              <use xlink:href="#home-about-cta"></use>
+            </svg>
+          </a>
+        </div>
+
+        <!-- PRESS LG -->
+        <div class="home-about__press home-about__press--lg col xxs-col-12 lg-row">
+          <a class="home-about__press__inner flex flex-wrap flex-columnn align-center justify-center" href="https://nypost.com/2023/08/28/pickles-are-the-tangiest-food-trend-of-2023-and-gen-zs-new-obsession/amp/" target="_blank">
+            <span class="regular-text regular-text--regular xs-row">As seen in &nbsp; &nbsp;</span>
+            <svg>
+              <use xlink:href="#new-york-post"></use>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- PRESS XXS -->
+      <div class="home-about__press home-about__press--xxs col xxs-col-12 lg-row">
+        <a class="home-about__press__inner flex flex-wrap flex-columnn align-center justify-center" href="https://nypost.com/2023/08/28/pickles-are-the-tangiest-food-trend-of-2023-and-gen-zs-new-obsession/amp/" target="_blank">
+          <span class="regular-text regular-text--regular xs-row container aligncenter">As seen in</span>
+          <svg>
+            <use xlink:href="#new-york-post"></use>
+          </svg>
+        </a>
+      </div>
+
+      <div class="home-about-lifestyle-container col lg-col-6">
+        {% render 'lazy-asset-img', src: 'home-about-2.jpg', width: 887, height: 1000, class: 'home-about-lifestyle__img home-about-lifestyle__img--top lazy-img--regular ', alt: 'lifestyle' %}
+        {% render 'lazy-asset-img', src: 'home-about-1.jpg', width: 887, height: 1000, class: 'home-about-lifestyle__img home-about-lifestyle__img--bottom lazy-img--regular ', alt: 'lifestyle' %}
+      </div>
+    </section>
+
+    {% render 'home-about-anim' %}
+  </div>
+</section>
+
+
+{% schema %}
+{
+  "tag": "section",
+  "name": "Home about",
+  "class": "home-about-container",
+  "settings": [
+  ]
+}
+{% endschema %}

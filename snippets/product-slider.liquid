@@ -1,0 +1,33 @@
+<section class="keen-slider-container">
+  <div class="keen-slider">
+    {% for img in product.images -%}
+      {% assign i = i | plus: 1 %}
+      <div class="keen-slider__slide">
+        {% render 'lazy-img', src: img, size: '1000x1000', width: 1000, height: 1000, class: 'lazy-img--regular main-product__img main-product__img--xxs', alt: img.alt %}
+        {% render 'lazy-img', src: img, size: '1500x1600', width: 1500, height: 1600, class: 'lazy-img--regular main-product__img main-product__img--lg', alt: img.alt %}
+      </div>
+    {%- endfor %}
+  </div>
+
+  {%- if i > 1 -%}
+  <nav class="keen-slider__nav">
+    <button class="keen-slider__nav-item keen-slider__nav-item--prev flex flex-wrap align-center">
+      <svg width="73" height="56" viewBox="0 0 73 56" xmlns="http://www.w3.org/2000/svg">
+        <path class="circle" d="M17.8363 4.83919C1.82381 4.16774 2.31629 27.6439 4.56409 39.466C20.0784 55.4693 41.5338 54.4525 50.3222 51.9438C70.0371 49.1048 70.9617 34.7461 68.9597 27.9216C68.9203 17.249 50.497 9.9955 50.5339 10.6916C29.0496 0.496657 19.7837 2.54209 17.8363 4.83919Z" stroke-width="5"/>
+        <path class="arrow" d="M55.8442 29C44.6776 27.1667 21.7442 24.6 19.3442 29M19.3442 29C16.9442 33.4 27.6776 39.1667 33.3442 41.5M19.3442 29L26.3442 14" stroke-width="5"/>
+      </svg>
+    </button>
+
+    <button class="keen-slider__nav-item keen-slider__nav-item--next flex flex-wrap align-center justify-end">
+      <svg width="73px" height="56px" viewBox="0 0 73 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <g id="Page-1">
+              <g id="arrow-left" transform="translate(36.500000, 28.000000) rotate(180.000000) translate(-36.500000, -28.000000) translate(3.000000, 2.000000)">
+                  <path  class="circle" d="M14.8363,2.83919 C-1.17619,2.16774 -0.68371,25.6439 1.56409,37.466 C17.0784,53.4693 38.5338,52.4525 47.3222,49.9438 C67.0371,47.1048 67.9617,32.7461 65.9597,25.9216 C65.9203,15.249 47.497,7.9955 47.5339,8.6916 C26.0496,-1.503343 16.7837,0.54209 14.8363,2.83919 Z" ></path>
+                  <path class="arrow" d="M52.8442,27 C41.6776,25.1667 18.7442,22.6 16.3442,27 M16.3442,27 C13.9442,31.4 24.6776,37.1667 30.3442,39.5 M16.3442,27 L23.3442,12" id="Shape"></path>
+              </g>
+          </g>
+      </svg>
+    </button>
+  </nav>
+  {%- endif -%}
+</section>

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="canonical" href="{{ canonical_url }}">
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | img_url: width: 64, height: 64 }}">
+    {%- endif -%}
+
+    <title>
+      {{ page_title }}
+      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+    </title>
+
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+
+    {% assign productCollections = product.collections | map: "handle" %}
+
+    {% render 'meta-tags' %}
+    {{ content_for_header }}
+
+    {{ 'styles.min.css' | asset_url | stylesheet_tag }}
+    {% include 'pagefly-app-header' %}
+</head>
+
+  <body class="template-{{ template.name }} {% if page.template_suffix != nil %}template-{{ template.name }}--{{ page.template_suffix }}{% endif %}  {%- if settings.infos-banner != blank -%}info-banner-active{% endif %} ">
+    {%- render 'info-banner' -%}
+    {%- render 'site-logo' -%}
+    {%- render 'site-header' -%}
+    {%- render 'menu-drawer' -%}
+
+    {% if template != 'cart' and template != 'password' %}
+      {%- render 'cart-drawer' -%}
+    {% endif %}
+
+    <main role="main" tabindex="-1">
+      {{ content_for_layout }}
+    </main>
+
+    {% render 'instagram-feed' %}
+    {% render 'site-footer' %}
+    {% render 'newsletter-modal' %}
+    
+    <script>
+      window.shopUrl = '{{ request.origin }}';
+      window.routes = {
+        cart_add_url: '{{ routes.cart_add_url }}',
+        cart_change_url: '{{ routes.cart_change_url }}',
+        cart_update_url: '{{ routes.cart_update_url }}',
+        cart_url: '{{ routes.cart_url }}',
+        predictive_search_url: '{{ routes.predictive_search_url }}'
+      };
+
+      window.cartStrings = {
+        error: `{{ 'sections.cart.cart_error' | t }}`,
+        quantityError: `{{ 'sections.cart.cart_quantity_error_html' | t: quantity: '[quantity]' }}`
+      }
+
+      window.variantStrings = {
+        addToCart: `{{ 'products.product.add_to_cart' | t }}`,
+        soldOut: `{{ 'products.product.sold_out' | t }}`,
+        unavailable: `{{ 'products.product.unavailable' | t }}`,
+      }
+
+      window.accessibilityStrings = {
+        imageAvailable: `{{ 'products.product.media.image_available' | t: index: '[index]' }}`,
+        shareSuccess: `{{ 'general.share.success_message' | t }}`
+      }
+    </script>
+
+    <script src="{{ 'functions.min.js' | asset_url }}" defer="defer"></script>
+
+    <div class="hidden">
+      {%- render 'icons' -%}
+    </div>
+
+    <!-- Google tag (gtag.js) -->
+    <script async defer="defer" src="https://www.googletagmanager.com/gtag/js?id=G-9VQMLHLZZL"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-9VQMLHLZZL'); </script>
+  </body>
+
+</html>

@@ -1,0 +1,28 @@
+{
+  "sections": {
+    "home-intro": {
+      "type": "home-intro",
+      "settings": {
+        "home-intro-img": "shopify:\/\/shop_images\/landing-pickle-picture-GGS.jpg"
+      }
+    },
+    "home-products": {
+      "type": "home-products",
+      "settings": {}
+    },
+    "home-hot-girls-marquee": {
+      "type": "home-hot-girls-marquee",
+      "settings": {}
+    },
+    "home-about": {
+      "type": "home-about",
+      "settings": {}
+    }
+  },
+  "order": [
+    "home-intro",
+    "home-products",
+    "home-hot-girls-marquee",
+    "home-about"
+  ]
+}

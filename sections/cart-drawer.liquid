@@ -1,0 +1,8 @@
+{%- assign templateBase = template | slice: 0, 4 -%}
+{%- if templateBase == 'cart' -%}
+<script>
+window.location.href = "/";
+</script>
+{% endif %}
+
+{% render 'cart-drawer' %}

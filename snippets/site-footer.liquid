@@ -1,0 +1,93 @@
+<footer class="site-footer section-separator section-separator--top section-separator--regular ">
+  {% render 'separator-xxs', class: 'section-separator__item--top-xxs', number: '1-', color: 'purple', width: 1560 , height: 259  %}
+  {% render 'separator-lg', class: 'section-separator__item--top-lg', number: '2-', color: 'purple', width: 4602, height: 474 %}
+
+  <div class="site-footer__inner section-separator__inner row">
+    <section class="site-footer__newsletter-container parent-anim">
+
+      <div class="site-footer__newsletter-bubbles">
+        <div class="site-footer__newsletter-drawing">
+          <div class="img-container rotate-children">
+            <img src="{{ 'newsletter-drawing.png' | asset_url }}" width="766" height="278" alt="girl and pickle"/>
+          </div>
+        </div>
+
+        <div class="site-footer__newsletter-bubble site-footer__newsletter-bubble--back">
+        </div>
+
+        <div class="site-footer__newsletter-bubble site-footer__newsletter-bubble--front">
+          <div class="site-footer__newsletter-text text-1 sm-row">
+            <div class="sm-row">
+              {%- if settings.newsletter-title != blank -%}
+                {{ settings.newsletter-title }}
+              {%- endif -%}
+            </div>
+
+            <div>
+              {%- if settings.newsletter-text != blank -%}
+                {{ settings.newsletter-text }}
+              {%- endif -%}
+            </div>
+          </div>
+
+          {% render 'newsletter-form' %}
+
+        </div>
+      </div>
+
+      <div class="site-footer__social site-footer__social--lg">
+        <h4 class="text-1 italic color-grey-ggs">{{ settings.friends }}</h4>
+        {% render 'social' %}      
+      </div>
+    </section>
+
+    <nav class="site-footer__nav flex flex-wrap">
+      <ul class="site-footer__menu site-footer__menu--main">
+        {% for link in linklists.main-menu.links %}
+          <li class="site-footer__menu-item text-1 color-grey-ggs">
+            <a class="inline-block rotate-anim" href="{{ link.url }}">
+              <span>{{ link.title }}</span>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <ul class="site-footer__menu">
+        <li class="site-footer__menu-item text-1 color-grey-ggs">
+          <a class="inline-block rotate-anim" href="mailto:info@goodgirlsnacks.com">
+            <span>Contact Us</span>
+          </a>
+        </li>
+
+        {% for link in linklists.footer.links %}
+          <li class="site-footer__menu-item text-1 color-grey-ggs">
+            <a class="inline-block rotate-anim" href="{{ link.url }}">
+              <span>{{ link.title }}</span>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <div class="site-footer__social site-footer__social--xxs">
+      <h4 class="text-1 italic color-grey-ggs lg-row">{{ settings.friends }}</h4>
+      {% render 'social' %}      
+    </div>
+
+  </div>
+</footer>
+
+<footer class="footer-logo section-separator section-separator--top background-grey-ggs">
+
+  {% render 'separator-lg', class: 'section-separator__item--top-lg', number: '2-', color: 'purple', width: 4602 , height: 478 %}
+
+  <div class="container section-separator__inner ">
+    <div class="row md-row">
+      <svg>
+        <use xlink:href="#logo"></use>
+      </svg>
+    </div>
+
+    <div class="container text-1 aligncenter">© {{  "now" | date: '%Y' }}, good girl snacks</div>
+  </div>
+</footer>

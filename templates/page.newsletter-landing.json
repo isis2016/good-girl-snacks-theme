@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "main-newsletter-landing": {
+      "type": "main-newsletter-landing",
+      "settings": {
+        "newsletter-landing-title": "Be Part of Good Girl Snacks’ \nBig Girl Decisions <3",
+        "newsletter-landing-text": "Help us decide what's next, stay involved in updates and conversations with us, get early access to products (because you deserve it!) & join us on our journey to making our lil pickle company blow up",
+        "newsletter-landing-welcome": "Welcome to the good girl snacks family <3",
+        "newsletter-landing-pickle-1": "shopify:\/\/shop_images\/pickle-1_a7c54090-3639-4c64-b389-3a49cc31a203.png",
+        "newsletter-landing-pickle-2": "shopify:\/\/shop_images\/pickle-2_fe4f391d-cea2-4d56-a332-76ae3d41ecec.png",
+        "newsletter-landing-img-result": "shopify:\/\/shop_images\/results.png"
+      }
+    }
+  },
+  "order": [
+    "main-newsletter-landing"
+  ]
+}

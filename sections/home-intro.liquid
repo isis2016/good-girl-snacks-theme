@@ -1,0 +1,39 @@
+{% assign  cta-picto = 'pickles' %}
+{% if collections['pickles'].products_count == 0 %}
+{% assign  cta-picto = 'merch' %}
+{% endif %}
+
+<a class="block fullheight" href="collections/all">
+  {% render 'lazy-bg', src: section.settings.home-intro-img, size: '2000x', class: 'fullheight' %}
+
+  <div class="home-intro__inner">
+    <div class="home-intro__pickles img-container">
+      <img src="{{ 'home-intro-pickles.png' | asset_url }}" width="1208" height="744" alt="{{ shop.name }}"/>
+
+      <svg class="home-intro__organic">
+        <use xlink:href="#home-intro-organic"></use>
+      </svg>
+    </div>
+
+    <div class="home-intro__cta rotate-anim">
+      <svg class="cta">
+        <use xlink:href="#click-if-hot"></use>
+      </svg>
+    </div>
+  </div>
+</a>
+
+{% schema %}
+{
+  "tag": "section",
+  "name": "Home intro",
+  "class": "home-intro fullheight",
+  "settings": [
+    {
+      "label": "Image",
+      "id": "home-intro-img",
+      "type": "image_picker"
+    }
+  ]
+}
+{% endschema %}

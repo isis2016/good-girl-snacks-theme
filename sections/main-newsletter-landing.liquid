@@ -1,0 +1,155 @@
+{% form 'customer', id: 'newsletter-form', class: 'newsletter-form' %}
+
+<section class="newsletter-landing__box grid flex flex-wrap justify-center section-separator__inner">
+	<div class="col xxs-col-12 lg-col-12 xl-col-10 xl-row">
+
+    {%- if form.posted_successfully? == blank -%}
+     <div class="newsletter-landing__tickle rotate-anim">
+        <svg class="newsletter-landing__tickle-svg newsletter-landing__tickle-svg--no-touch">
+          <use xlink:href="#newsletter-landing-tickle"></use>
+        </svg>
+
+        <svg <svg class="newsletter-landing__tickle-svg newsletter-landing__tickle-svg--touch">>
+          <use xlink:href="#newsletter-landing-click"></use>
+        </svg>
+      </div>
+
+      <div class="newsletter-landing__pictos newsletter-landing__pictos--portrait flex align-end justify-center">
+        {% if section.settings.newsletter-landing-pickle-1 != blank %}
+          {% render 'lazy-img', src: section.settings.newsletter-landing-pickle-1, size: '549x671', width: 549, height: 671, class: 'lazy-img--regular newsletter-landing__pictos-item', alt: section.settingsnewsletter-landing-pickle-1.alt %}
+        {% endif %}
+
+        {% if section.settings.newsletter-landing-pickle-2 != blank %}
+          {% render 'lazy-img', src: section.settings.newsletter-landing-pickle-2, size: '549x436', width: 549, height: 436, class: 'lazy-img--regular newsletter-landing__pictos-item inactive', alt: section.settingsnewsletter-landing-pickle-2.alt %}
+        {% endif %}
+      </div>
+    {% endif %}
+
+
+		<div class="newsletter-landing__box-background flex flex-wrap">
+
+			<div class="newsletter-landing__form flex flex-column flex-wrap justify-center">
+	    	<input type="hidden" name="contact[tags]" value="newsletter">
+
+        {%- if form.posted_successfully? == blank -%}
+ 
+
+				<h2 class="main-title main-title--bold color-red sm-row">{{ section.settings.newsletter-landing-title | newline_to_br }}</h2>
+				<div class="regular-text color-red md-row">
+					<i>{{ section.settings.newsletter-landing-text | newline_to_br }}</i>
+				</div>
+
+        <div class="flex flex-wrap">
+          <div class="newsletter-form__field-wrapper flex flex-wrap">
+            <input
+              type="email"
+              name="contact[email]"
+              class=""
+              value="{{ form.email }}"
+              aria-required="true"
+              autocorrect="off"
+              autocapitalize="off"
+              autocomplete="email"
+              {% if form.errors %}
+                autofocus
+                aria-invalid="true"
+              {% endif %}
+              placeholder="Your Email"
+              required
+            >
+          </div>
+          <div class="newsletter-form__submit-container">
+	          <button class="rotate-anim" type="submit" name="commit" id="Subscribe">
+	            <svg width="87" height="42" viewBox="0 0 87 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+	            <path d="M3.06706 21.4572C2.52102 39.938 29.0387 39.8704 42.3658 37.5264C73.8398 40.2119 83.8207 24.4273 82.8736 24.2108C91.0349 1.32029 47.3331 3.73138 46.377 3.37656C-3.84744 5.93193 4.57107 20.6654 3.06706 21.4572Z" fill="#FFCD53" stroke="#FFCD53" stroke-width="5"/>
+	            </svg>
+	            <span>Join</span>
+	          </button>
+	         </div>
+        </div>
+        {%- endif -%}
+        
+        {%- if form.errors -%}
+          <div class="xs-row"></div>
+          <span class="text-1 color-red" id="Newsletter-error--footer-">{{ "footer.newsletter_error" | t }}: {{ form.errors.messages['email'] }}</span>
+        {%- endif -%}
+
+        <div id="newsletter-form__already-registered" class="hidden">
+          <div class="xs-row"></div>
+          <span class="text-1 color-red">You are already subscribed</span>
+        </div>
+
+        <script>
+          if (window.location.href.includes("?contact%5Btags%5D=newsletter&form_type=customer")) {
+          document.getElementById('newsletter-form__already-registered').classList.remove('hidden');
+          }
+        </script>
+
+        {%- if form.posted_successfully? -%}
+          <h3 class="main-title main-title--bold color-red" id="Newsletter-success--footer" tabindex="-1" autofocus>Welcome to the good girl snacks family <3</h3>
+        {%- endif -%}
+			</div>
+
+			{%- if form.posted_successfully? -%}
+				<div class="newsletter-landing__pictos newsletter-landing__pictos--result">
+					{% if section.settings.newsletter-landing-img-result != blank %}
+				  	{% render 'lazy-img', src: section.settings.newsletter-landing-img-result, size: '1180*942', width: 1180, height: 942, class: 'lazy-img--regular', alt: section.settingsnewsletter-landing-img-result.alt %}
+					{% endif %}
+				</div>
+			{% endif %}
+
+			{%- if form.posted_successfully? == blank -%}
+				<div class="newsletter-landing__pictos newsletter-landing__pictos--landscape flex align-end justify-center">
+					{% if section.settings.newsletter-landing-pickle-1 != blank %}
+				  	{% render 'lazy-img', src: section.settings.newsletter-landing-pickle-1, size: '549x671', width: 549, height: 671, class: 'lazy-img--regular newsletter-landing__pictos-item', alt: section.settingsnewsletter-landing-pickle-1.alt %}
+					{% endif %}
+
+					{% if section.settings.newsletter-landing-pickle-2 != blank %}
+				  	{% render 'lazy-img', src: section.settings.newsletter-landing-pickle-2, size: '572x436', width: 572, height: 436, class: 'lazy-img--regular newsletter-landing__pictos-item inactive', alt: section.settingsnewsletter-landing-pickle-2.alt %}
+					{% endif %}
+				</div>
+			{% endif %}
+		</div>
+	</div>
+</section>
+	{% endform %}
+
+{% schema %}
+{
+  "tag": "section",
+  "name": "Newsletter landing",
+  "class": "newsletter-landing section-separator section-separator--before-separator-big",
+  "settings": [
+    {
+      "label": "Newsletter landing title",
+      "id": "newsletter-landing-title",
+      "type": "textarea"
+    },
+    {
+      "label": "Newsletter landing text",
+      "id": "newsletter-landing-text",
+      "type": "textarea"
+    },
+    {
+      "label": "Newsletter welcome",
+      "id": "newsletter-landing-welcome",
+      "type": "textarea"
+    },
+    {
+      "label": "Newsletter pickle 1",
+      "id": "newsletter-landing-pickle-1",
+      "type": "image_picker"
+    },
+    {
+      "label": "Newsletter pickle 2",
+      "id": "newsletter-landing-pickle-2",
+      "type": "image_picker"
+    },
+    {
+      "label": "Newsletter image result",
+      "id": "newsletter-landing-img-result",
+      "type": "image_picker"
+    }
+  ]
+}
+{% endschema %}

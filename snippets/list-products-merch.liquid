@@ -1,0 +1,49 @@
+{% assign merchProducts = '' | split: ',' %}
+{% assign merchCount = 0 %}
+
+{% for product in collections['merch'].products %}
+  {% unless product.tags contains 'bundle-children' or product.tags contains 'private' %}
+    {% assign merchCount = merchCount | plus: 1 %}
+  {% endunless %}
+{% endfor %}
+
+{% assign picklesCount = collections['pickles'].products_count %}
+
+{%- if merchCount >= 1 -%}
+
+<section id="merch" class="section-separator section-separator--top section-separator--green-merch section-separator--before-separator">
+  {% render 'separator-xxs', class: 'section-separator__item--top-xxs', number: '2-', color: 'green-merch', width: 1560 , height: 484 %}
+  {% render 'separator-lg', class: 'section-separator__item--top-lg', number: '1-', color: 'green-merch', width: 4602 , height: 474 %}
+
+    {%- if picklesCount < 1 -%}{%- endif -%}
+    <div class="lg-row"></div>
+
+    <div class="list-products list-products--merch section-separator__inner">
+      <div class="grid flex flex-wrap">
+        <h2 class="main-title main-title--bold col xxs-col-12 lg-row">good girl merch</h2>
+
+        {% for product in collections['merch'].products %}
+          {% unless product.tags contains 'bundle-children' or product.tags contains 'private' %}
+            <div class="col xxs-col-6 lg-col-4">
+            {% render 'product-loop', product: product, class: '' %}
+            </div>
+          {% endunless %}
+        {% endfor %}
+
+        {% if merchCount == 1 or merchCount == 4  or merchCount == 7 or merchCount == 10 %}
+          {% assign pushPictoClass = 'list-products__picto--1-product' | append: '' %}
+        {% elsif merchCount == 2 or merchCount == 5  or merchCount == 8 or merchCount == 11 %}
+          {% assign pushPictoClass = 'list-products__picto--2-products' | append: '' %}
+        {% elsif merchCount == 3 or merchCount == 6  or merchCount == 9 or merchCount == 12 %}
+          {% assign pushPictoClass = 'list-products__picto--3-products' | append: '' %}
+        {% endif %}
+
+        {% assign pictoLgCLass = 'lazy-img--regular list-products__picto list-products__picto--lg ' | append: pushPictoClass %}
+
+        {% render 'lazy-asset-img', src: 'merch-dance-girl.svg', width: 795, height: 840, class: 'lazy-img--regular list-products__picto list-products__picto--xxs', alt: 'push girl' %}
+      </div>
+      {% render 'lazy-asset-img', src: 'merch-push-girl.png', width: 455, height: 647, class: pictoLgCLass, alt: 'push girl' %}
+
+    </div>
+  </section>
+{% endif %}

@@ -1,0 +1,66 @@
+<section class="newsletter">
+  <div class="newsletter__inner">
+    <div>
+      {% form 'customer', id: 'newsletter-form', class: 'newsletter-form' %}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+
+        {%- if form.posted_successfully? == blank -%}
+        <div class="flex flex-wrap">
+          <div class="newsletter-form__field-wrapper flex flex-wrap">
+            <input
+              type="email"
+              name="contact[email]"
+              class=""
+              value="{{ form.email }}"
+              aria-required="true"
+              autocorrect="off"
+              autocapitalize="off"
+              autocomplete="email"
+              {% if form.errors %}
+                autofocus
+                aria-invalid="true"
+              {% endif %}
+              placeholder="Your Email"
+              required
+            >
+          </div>
+
+          <div class="newsletter-form__submit-container">
+            <button class="rotate-anim" type="submit" name="commit" id="Subscribe">
+              <svg width="87px" height="42px" viewBox="0 0 87 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g id="btn" transform="translate(3.000000, 3.000000)" fill="#FFCD53" fill-rule="nonzero" stroke="#FFCD53" stroke-width="5">
+              <path d="M0.06706,18.4572 C-0.47898,36.938 26.0387,36.8704 39.3658,34.5264 C70.8398,37.2119 80.8207,21.4273 79.8736,21.2108 C88.0349,-1.67971 44.3331,0.73138 43.377,0.37656 C-6.84744,2.93193 1.57107,17.6654 0.06706,18.4572 Z" id="Path"></path>
+              </g>
+              </g>
+              </svg>
+              <span>Join</span>
+            </button>
+          </div>
+        </div>
+        {%- endif -%}
+        
+        {%- if form.errors -%}
+          <div class="xs-row"></div>
+          <span class="text-1 color-red" id="Newsletter-error--footer-">{{ "footer.newsletter_error" | t }}: {{ form.errors.messages['email'] }}</span>
+        {%- endif -%}
+
+        <div id="newsletter-form__already-registered" class="hidden">
+          <div class="xs-row"></div>
+          <span class="text-1 color-red">You are already subscribed</span>
+        </div>
+
+        <script>
+          if (window.location.href.includes("?contact%5Btags%5D=newsletter&form_type=customer")) {
+          document.getElementById('newsletter-form__already-registered').classList.remove('hidden');
+          }
+        </script>
+
+        {%- if form.posted_successfully? -%}
+          <div class="xs-row"></div>
+          <h3 class="text-1 color-black" id="Newsletter-success--footer" tabindex="-1" autofocus>Thank you ! You have been added to our mailing list</h3>
+        {%- endif -%}
+      {% endform %}
+    </div>
+  </div>
+</section>

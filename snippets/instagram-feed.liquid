@@ -1,0 +1,21 @@
+<section class="instagram-feed section-separator section-separator--top section-separator--orange section-separator--before-separator">
+  {% render 'separator-xxs', class: 'section-separator__item--top-xxs', number: '1-', color: 'orange', width: 1560 , height: 259  %}
+  {% render 'separator-lg', class: 'section-separator__item--top-lg', number: '1-', color: 'orange', width: 4602 , height: 474 %}
+
+  {% if template.name == 'index' %}
+    {% render 'home-pickles-talk' %}
+    {% render 'home-vs-them' %}
+  {% endif %}
+
+  <div class="instagram-feed__inner section-separator__inner ">
+    <div class="instagram-feed__baseline row justify-center">
+      <h2 class="main-title main-title--instagram main-title--bold container color-red aligncenter">
+        <a href="{{ "instagram_feed.url" | t }}" target="_blank">{{ "instagram_feed.title" | t }}<br>{{ "instagram_feed.slug" | t }}</a>
+      </h2>
+    </div>
+
+    <div class="instagram-feed__scroller flex">
+      <div class="instagram-feed__scroller-inner flex"></div>
+    </div>
+  </div>
+</section>

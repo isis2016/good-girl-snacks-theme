@@ -1,0 +1,48 @@
+{% form 'contact' %}
+<section class="carry-us-content flex flex-wrap">
+  <div class="carry-us-form">
+    {%- if form.errors -%}
+      <div class="xs-row"></div>
+      <span class="legend-text color-red">{{ form.errors | default_errors }}</span>
+    {%- endif -%}
+   
+    {%- if form.posted_successfully? == blank -%}
+      <div class="carry-us-form__field-wrapper sm-row">
+        <input type="text" name="contact[company_name]" id="company-name" required="required" placeholder="Company Name*"/>
+      </div>
+
+      <div class="carry-us-form__field-wrapper sm-row">
+        <input type="text" name="contact[full_name]" id="full-name" required="required" placeholder="Full Name*"/>
+      </div>
+
+      <div class="carry-us-form__field-wrapper sm-row">
+        <input type="email" name="contact[email]" id="email" required="required" placeholder="Your Email*"/>
+      </div>
+
+       <div class="carry-us-form__field-wrapper sm-row">
+        <input type="text" name="contact[url]" id="url" required="required" placeholder="URL (Instagram or Website)*"/>
+      </div> 
+
+      <div class="carry-us-form__field-wrapper sm-row">
+        <textarea name="contact[body]" id="message" required="required" placeholder="Please give us more details on your request!*"></textarea>
+      </div>
+
+      <div class="submit alignright">
+        <input type="submit" value="Submit" />
+      </div>
+    {%- endif -%}
+  </div>
+
+  <div class="carry-us-picto">
+    {%- if form.posted_successfully? -%}
+      <svg class="carry-us-picto__success carry-us-picto__success--lg">
+        <use xlink:href="#carry-us-form-success-lg"></use>
+      </svg>
+      <svg class="carry-us-picto__success carry-us-picto__success--xxs">
+        <use xlink:href="#carry-us-form-success-xxs"></use>
+      </svg>
+    {%- endif -%}
+    {% render 'lazy-asset-img', src: 'carry-us-girl.png', width: 592, height: 672, class: 'lazy-img--regular carry-us-picto__img' , alt: 'Carry us girl' %}
+  </div>
+</section>
+{% endform %}

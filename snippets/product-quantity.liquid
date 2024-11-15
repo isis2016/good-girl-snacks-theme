@@ -1,0 +1,51 @@
+{% if product.variants.first.inventory_management == blank or product.variants.first.inventory_management == 'shopify' and product.variants.first.inventory_quantity > 0 %}
+  <section class="product-quantity flex flex-wrap justify-between sm-row">
+    {% if product_handle contains 'honey-harissa' or product_handle contains 'original-dill'%}
+
+      {% if product.variants.first.inventory_management == blank or product.variants.first.inventory_management == 'shopify' and product.variants.first.inventory_quantity > 0 %}
+      <button class="product-quantity__item flex flex-wrap active" data-percent="1" data-quantity="1">
+        <span class="main-title main-title--semi-bold container block aligncenter">1</span>
+        <span class="product-text container block aligncenter">Jar</span>
+        <span class="regular-text regular-text--regular regular-text--smaller container block aligncenter">&nbsp;</span>
+      </button>
+      {% endif %}
+
+      {% if product.variants.first.inventory_management == blank or product.variants.first.inventory_management == 'shopify' and product.variants.first.inventory_quantity > 1 %}
+      <button class="product-quantity__item" data-percent="1" data-quantity="2">
+        <span class="main-title main-title--semi-bold container block aligncenter">2</span>
+        <span class="product-text container block aligncenter">Jars</span>
+        <span class="regular-text regular-text--regular regular-text--smaller container block aligncenter">&nbsp;</span>
+      </button>
+      {% endif %}
+
+      {% if product.variants.first.inventory_management == blank or product.variants.first.inventory_management == 'shopify' and product.variants.first.inventory_quantity > 3 %}
+        <div class="product-quantity__item product-quantity__item--picto flex flex-wrap align-center justify-center">
+          {% render 'lazy-asset-img', src: 'single-product-merch.png', width: 156, height: 151, class: 'lazy-img--regular product-quantity__picto', alt: 'pickle girl' %}
+        </div>
+      {% endif %}
+
+      {% if product.variants.first.inventory_management == blank or product.variants.first.inventory_management == 'shopify' and product.variants.first.inventory_quantity > 3 %}
+      <button class="product-quantity__item" data-percent="0.9" data-quantity="4">
+        <span class="main-title main-title--semi-bold container block aligncenter">4</span>
+        <span class="product-text container block aligncenter">Jars</span>
+        <span class="regular-text regular-text--regular regular-text--smaller container block aligncenter">+10% Off</span>
+      </button>
+      {% endif %}
+
+    {% else %}
+      {% if product.variants.first.inventory_management == blank or product.variants.first.inventory_management == 'shopify' and product.variants.first.inventory_quantity > 0 %}
+      <button class="product-quantity__item flex flex-wrap active" data-percent="1" data-quantity="1">
+        <span class="main-title main-title--semi-bold container block aligncenter">2-pack</span>
+        <span class="regular-text regular-text--regular regular-text--smaller container block aligncenter">&nbsp;</span>
+      </button>
+      {% endif %}
+
+      {% if product.variants.first.inventory_management == blank or product.variants.first.inventory_management == 'shopify' and product.variants.first.inventory_quantity > 1 %}
+      <button class="product-quantity__item" data-percent="0.9" data-quantity="2">
+        <span class="main-title main-title--semi-bold container block aligncenter">4-pack</span>
+        <span class="regular-text regular-text--regular regular-text--smaller container block aligncenter">+10% Off</span>
+      </button>
+      {% endif %}
+    {% endif %}
+  </section>
+{% endif %}

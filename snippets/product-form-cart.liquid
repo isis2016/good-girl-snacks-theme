@@ -1,0 +1,38 @@
+<product-form class="product-form-cart">
+  {%- form 'product', product, data-productid: product.id, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+    <input type="hidden" name="id" data-productid="{{ product.id }}" value="{{ product.selected_or_first_available_variant.id }}" disabled>
+    <input type="hidden" type="number" name="quantity" value="1" min="1" />
+
+    <button
+      type="submit"
+      name="add"
+      class="product-form__submit flex"
+      {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
+    >
+    {%- if product.selected_or_first_available_variant.available -%}
+      <span>
+        {% if product.tags contains 'Pre-order' %}
+          {{ 'products.product.pre_order' | t }}
+        {% else %}
+          {{ 'products.product.add_to_cart' | t }}
+        {% endif %}
+      </span>
+      
+      <span>&nbsp;-&nbsp;</span>
+    {%- else -%}
+      <span>{{ 'products.product.sold_out' | t }}</span>
+    {%- endif -%}
+
+      {%- if product.selected_or_first_available_variant.available -%}
+      <div class="main-product__price product-text" id="price-{{ section.id }}">
+        {%- render 'price', product: product, use_variant: true -%}
+      </div>
+      {%- endif -%}
+    </button>
+
+    <div class="product-form__error-message-wrapper legend-text color-red hidden" role="alert" hidden>
+      <br>
+      <span class="product-form__error-message"></span>
+    </div>
+  {%- endform -%}
+</product-form>

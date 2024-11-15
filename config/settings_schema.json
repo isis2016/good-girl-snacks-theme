@@ -1,0 +1,108 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "GGS",
+    "theme_version": "1.0.0",
+    "theme_author": "Donald David",
+    "theme_documentation_url": "https:\/\/help.shopify.com\/manual\/online-store\/themes",
+    "theme_support_url": "https:\/\/support.shopify.com\/"
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon",
+        "info": "Favicon file (png 64px x 64px)"
+      }
+    ]
+  },
+  {
+    "name": "Infos Banner",
+    "settings": [
+      {
+        "type": "text",
+        "id": "infos-banner",
+        "label": "Infos banner text",
+        "default": "PREORDER TO SECURE HOT GIRL PICKLES"
+      },
+      {
+        "type": "color",
+        "id": "infos-banner-bg",
+        "label": "Infos banner background",
+        "default": "#89a231"
+      }
+    ]
+  },
+  {
+    "name": "Newsletter title",
+    "settings": [
+      {
+        "type": "text",
+        "id": "newsletter-title",
+        "label": "Newsletter title"
+      }
+    ]
+  },
+  {
+    "name": "Newsletter text",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "newsletter-text",
+        "label": "Newsletter text"
+      }
+    ]
+  },
+  {
+    "name": "Let's be friend",
+    "settings": [
+      {
+        "type": "text",
+        "id": "friends",
+        "label": "Let's be friend"
+      }
+    ]
+  },
+  {
+    "name": "Tiktok url",
+    "settings": [
+      {
+        "type": "url",
+        "id": "tiktok-url",
+        "label": "Tiktok url"
+      }
+    ]
+  },
+  {
+    "name": "Instagram url",
+    "settings": [
+      {
+        "type": "url",
+        "id": "instagram-url",
+        "label": "Instagram url"
+      }
+    ]
+  },
+  {
+    "name": "Spotify url",
+    "settings": [
+      {
+        "type": "url",
+        "id": "spotify-url",
+        "label": "Spotify url"
+      }
+    ]
+  },
+  {
+    "name": "Linkedin url",
+    "settings": [
+      {
+        "type": "url",
+        "id": "linkedin-url",
+        "label": "Linkedin url"
+      }
+    ]
+  }
+]

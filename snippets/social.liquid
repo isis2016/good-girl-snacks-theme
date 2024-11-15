@@ -1,0 +1,43 @@
+<ul class="site-footer__social-items flex flex-wrap justify-center">
+
+  
+    {%- if settings.tiktok-url != blank -%}
+    <li class="site-footer__social-item">
+      <a class="block rotate-anim" href="{{ settings.tiktok-url }}" target="_blank" title="tiktok">
+        <div class="img-container">
+          <img src="{{ 'tiktok.png' | asset_url }}" width="134" height="134" title="tiktok"/>
+        </div>
+      </a>
+    </li>
+    {%- endif -%}
+
+    {%- if settings.instagram-url != blank -%}
+    <li class="site-footer__social-item">
+      <a class="block rotate-anim" href="{{ settings.instagram-url }}" target="_blank" title="instagram">
+        <div class="img-container">
+          <img src="{{ 'instagram.png' | asset_url }}" width="134" height="134" title="instagram"/>
+        </div>
+      </a>
+    </li>
+    {%- endif -%}
+
+    {%- if settings.spotify-url != blank -%}
+    <li class="site-footer__social-item">
+      <a class="block rotate-anim" href="{{ settings.spotify-url }}" target="_blank" title="spotify">
+        <div class="img-container">
+          <img src="{{ 'spotify.png' | asset_url }}" width="134" height="134" title="spotify"/>
+        </div>
+      </a>
+    </li>
+    {%- endif -%}
+
+    {%- if settings.linkedin-url != blank -%}
+    <li class="site-footer__social-item">
+      <a class="block rotate-anim" href="{{ settings.linkedin-url }}" target="_blank" title="linkedin">
+        <div class="img-container">
+          <img src="{{ 'linkedin.png' | asset_url }}" width="134" height="134" title="linkedin"/>
+        </div>
+      </a>
+    </li>
+    {%- endif -%}
+</ul>

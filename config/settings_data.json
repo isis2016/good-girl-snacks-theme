@@ -1,0 +1,37 @@
+{
+  "current": {
+    "favicon": "shopify:\/\/shop_images\/GG-icon2.jpg",
+    "infos-banner": "SHOP GLOWED UP HOT GIRL PICKLES NOW!",
+    "infos-banner-bg": "#e078a1",
+    "newsletter-title": "Join the Good Girl Club!",
+    "newsletter-text": "Exclusive monthly recipes using the Hot Girl Pickles™, news about drops, our favorite hot girl trends this month and all things good girl snacks™",
+    "friends": "Let’s be friends!",
+    "tiktok-url": "https:\/\/www.tiktok.com\/@goodgirlsnacks",
+    "instagram-url": "https:\/\/www.instagram.com\/goodgirlsnacks",
+    "spotify-url": "https:\/\/spotify.com",
+    "linkedin-url": "https:\/\/www.linkedin.com\/company\/good-girl-snacks\/about\/",
+    "checkout_logo_image": "shopify:\/\/shop_images\/GoodGirlSnacks-Pink-Logo.png",
+    "checkout_logo_position": "center",
+    "checkout_logo_size": "large",
+    "checkout_body_background_color": "#dcdddf",
+    "checkout_sidebar_background_color": "#e078a1",
+    "checkout_heading_font": "Helvetica Neue",
+    "checkout_body_font": "Helvetica Neue",
+    "checkout_accent_color": "#e078a1",
+    "checkout_button_color": "#e078a1",
+    "linkdedin-url": "https:\/\/www.linkedin.com\/company\/good-girl-snacks\/?trk=public_profile_experience-item_profile-section-card_subtitle-click",
+    "content_for_index": [],
+    "blocks": {
+      "855628211100114053": {
+        "type": "shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/klaviyo-onsite-embed\/2632fe16-c075-4321-a88b-50b567f42507",
+        "disabled": false,
+        "settings": {}
+      },
+      "pagefly-page-builder": {
+        "type": "shopify:\/\/apps\/pagefly-page-builder\/blocks\/app-embed\/83e179f7-59a0-4589-8c66-c0dddf959200",
+        "disabled": false,
+        "settings": {}
+      }
+    }
+  }
+}

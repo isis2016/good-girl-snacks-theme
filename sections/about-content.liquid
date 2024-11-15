@@ -1,0 +1,118 @@
+<div class="about-content__why site-section site-section--bottom md-row">
+  <div class="flex flex-wrap">
+    {% render 'lazy-asset-img', src: 'about-hand.svg', width: 1305, height: 1350, class: 'lazy-img--regular about-content__why-picto from-left', alt: 'hand' %}
+    <div class="about-content__why-content">
+      <h2 class="row about-content__why-title main-title main-title--bold">{{ section.settings.why-title }}</h2>
+      <div class="row about-content__why-text regular-text regular-text--bold">{{ section.settings.why-text | newline_to_br }}</div>
+    </div>
+  </div>
+</div>
+
+<div class="about-content__story site-section site-section--bottom">
+  <div class="flex flex-wrap">
+    {% render 'lazy-asset-img', src: 'about-pickle.png', width: 1285, height: 1051, class: 'lazy-img--regular about-content__story-picto moving-el', alt: 'hand' %}
+    <div class="about-content__story-content">
+      <h2 class="row about-content__story-title main-title main-title--bold"><span>{{ section.settings.story-title }}</span></h2>
+      <h2 class="row about-content__story-baseline regular-text regular-text--bold md-row">{{ section.settings.story-baseline | newline_to_br }}</h2>
+      <div class="about-content__story-text flex flex-wrap">
+        <div class="about-content__story-text-part regular-text regular-text--bold regular-text--smaller sm-row">{{ section.settings.story-1 | newline_to_br }}</div>
+        <div class="about-content__story-text-part regular-text regular-text--bold regular-text--smaller sm-row">{{ section.settings.story-2 | newline_to_br }}</div>
+        <div class="about-content__story-text-part regular-text regular-text--bold regular-text--smaller sm-row">{{ section.settings.story-3 | newline_to_br }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="about-content__founders site-section site-section--bottom">
+  <div class="about-content__founders-content flex flex-wrap">
+    <div class="about-content__founders-text-container">
+      <div class="row">
+        <h2 class="about-content__founders-title main-title main-title--bold">
+          <span>{{ section.settings.founders-title-first-row }}</span>
+          <br>
+          <span class="about-content__founders-bubble"><span>{{ section.settings.founders-title-second-row }}&nbsp;</span></span>
+        </h2>
+      </div>
+
+      <div class="row about-content__founders-text regular-text regular-text--bold md-row">
+        {{ section.settings.founders-text | newline_to_br }}
+        <div class="about-content__founders-signature container"><i>{{ section.settings.founders-signature }}</i></div>
+      </div>
+
+    </div>
+
+    <div class="about-content__founders-img-container row">
+      {% render 'lazy-img', src: section.settings.founders, size: '1500x', width: section.settings.founders.width, height: section.settings.founders.height, class: 'lazy-img--regular about-content__founders-img', alt: section.settings.founders.alt %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "tag": "section",
+  "name": "About Content",
+  "class": "about-content",
+  "settings": [
+    {
+      "label": "Why title (must start with Why&nbsp;&nbsp;)",
+      "id": "why-title",
+      "type": "text"
+    },
+    {
+      "label": "Why text",
+      "id": "why-text",
+      "type": "textarea"
+    },
+    {
+      "label": "Story title (must be Our Story)",
+      "id": "story-title",
+      "type": "text"
+    },
+    {
+      "label": "Story baseline",
+      "id": "story-baseline",
+      "type": "text"
+    },
+    {
+      "label": "Story text 1",
+      "id": "story-1",
+      "type": "textarea"
+    },
+    {
+      "label": "Story text 2",
+      "id": "story-2",
+      "type": "textarea"
+    },
+    {
+      "label": "Story text 3",
+      "id": "story-3",
+      "type": "textarea"
+    },
+    {
+      "label": "Founders title first row",
+      "id": "founders-title-first-row",
+      "type": "text"
+    },
+    {
+      "label": "Founders title second row (must be Founders)",
+      "id": "founders-title-second-row",
+      "type": "text"
+    },
+    {
+      "label": "Founders text",
+      "id": "founders-text",
+      "type": "textarea"
+    },
+    {
+      "label": "Founders signature",
+      "id": "founders-signature",
+      "type": "text"
+    },
+    {
+      "label": "Founders image",
+      "type": "image_picker",
+      "id": "founders"
+    }
+  ]
+}
+{% endschema %}

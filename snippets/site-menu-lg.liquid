@@ -1,0 +1,14 @@
+<nav class="site-menu-lg hide-text">
+  <ul class="site-menu-lg__inner flex flex-wrap align-center">
+    {% for link in linklists.main-menu.links %}
+      <li class="site-menu-lg__item site-menu-lg__item--{{link.handle}} {% if link.active %}active{% endif %} {% if link.handle == 'shop' and template.name == 'product'%} site-menu-lg__item--active {% endif %} rotate-anim">
+        <a href="{{ link.url }}">
+          <span>{{ link.title }}</span>
+          <svg>
+            <use xlink:href="#menu-{{link.handle}}"></use>
+          </svg>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>

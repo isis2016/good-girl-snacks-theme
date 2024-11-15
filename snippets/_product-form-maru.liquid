@@ -1,0 +1,26 @@
+<product-form class="product-form">
+  <div class="product-form__error-message-wrapper legend-text color-red hidden" role="alert" hidden>
+    <span class="product-form__error-message"></span>
+  </div>
+
+  {%- form 'product', product, data-productid: product.id, id: product.id, class: 'form sm-row', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+    <input type="hidden" name="id" data-productid="{{ product.id }}" value="{{ product.selected_or_first_available_variant.id }}" disabled>
+    <div class="product-form__buttons">
+      <button
+        type="submit"
+        name="add"
+        class="product-form__submit"
+        {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
+      >
+          <span>
+            {%- if product.selected_or_first_available_variant.available -%}
+              {{ 'products.product.add_to_cart' | t }}
+            {%- else -%}
+              {{ 'products.product.sold_out' | t }}
+            {%- endif -%}
+          </span>
+      </button>
+    </div>
+  {%- endform -%}
+
+</product-form>

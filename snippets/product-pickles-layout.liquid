@@ -1,0 +1,44 @@
+{%- assign product_form_id = 'product-form-' | append: section.id -%}
+{% assign product_handle = product.title | handleize %}
+
+<section class="main-product main-product--pickles main-product--{{product_handle}} section-separator--before-separator-big" data-section="{{ section.id }}">
+  <div class="grid flex flex-wrap align-start">
+    <div class="main-product__slider col xxs-col-12 sm-col-8 lg-col-5">
+      {% render 'product-slider' %}
+
+      <div class="main-product__infos main-product__infos--xxs">
+        <h2 class="main-product__title main-title main-title--bold">Hot Girl Pickles™</h2>
+        <h2 class="main-product__title main-title main-title--medium">{{ product.title }}</h2>
+      </div>
+
+      {%- render 'product-form', product: product, svg_type: 'main-product-pickles', product_form_id: product_form_id -%}
+    </div>
+
+    <div class="main-product__infos main-product__infos--lg col xxs-col-12 sm-col-8 lg-col-7">
+      <div class="main-product__text">
+        <h2 class="main-product__title main-title main-title--bold">Hot Girl Pickles™</h2>
+        <h2 class="main-product__title main-title main-title--medium md-row">{{ product.title }}</h2>
+
+        {% if product_handle contains 'original-dill' %}
+          <div class="main-product__baseline">
+            {% render 'lazy-asset-img', src: 'zesty-tangy.png', width: 526, height: 265, class: 'lazy-img--regular', alt: 'zesty tangy' %}
+          </div>
+        {% elsif product_handle contains 'honey-harissa' %}
+          <div class="main-product__baseline">
+            {% render 'lazy-asset-img', src: 'sweat-heat.png', width: 555, height: 213, class: 'lazy-img--regular', alt: 'sweat heat' %}
+          </div>
+        {% endif %}
+
+        <div class="main-product__description product-text lg-row">
+          
+          <div class="md-row"><i>{{ product.description }}</i></div>
+          <div id="ps__bis_target_container"></div>
+        </div>
+
+        {%- render 'product-quantity', product_handle: product_handle -%}
+        {%- render 'product-specs' -%}
+        {% render 'lazy-asset-img', src: 'pickles.gif', width: 1920, height: 1080, class: 'main-product__picto lazy-img--regular' , alt: 'pickle boy' %}
+      </div>
+    </div>
+  </div>
+</section>

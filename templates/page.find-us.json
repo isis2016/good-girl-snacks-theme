@@ -1,0 +1,46 @@
+{
+  "sections": {
+    "find-us-content": {
+      "type": "find-us-content",
+      "blocks": {
+        "towns_EaCNQX": {
+          "type": "towns",
+          "settings": {
+            "town-title": "New York",
+            "shop_1_img": "shopify:\/\/shop_images\/happier-grocery_7adb9ea7-4434-45c4-a6d4-5c0d60b61a4d.png",
+            "shop_1_url": "https:\/\/www.happiergrocery.com\/",
+            "shop_2_img": "shopify:\/\/shop_images\/pop-up-grocer_48770e9f-d94e-4212-a7d1-b12034896c2d.png",
+            "shop_2_url": "https:\/\/popupgrocer.com\/",
+            "shop_3_img": "shopify:\/\/shop_images\/pop-up-grocer_48770e9f-d94e-4212-a7d1-b12034896c2d.png",
+            "shop_3_url": "",
+            "shop_4_img": "shopify:\/\/shop_images\/happier-grocery_7adb9ea7-4434-45c4-a6d4-5c0d60b61a4d.png",
+            "shop_4_url": "",
+            "shop_5_url": "",
+            "shop_6_url": ""
+          }
+        },
+        "towns_mmb6r3": {
+          "type": "towns",
+          "settings": {
+            "town-title": "LA",
+            "shop_1_img": "shopify:\/\/shop_images\/wine-and-eggs_48ec7eea-47b9-4330-973a-b7a8826a6ccd.png",
+            "shop_1_url": "https:\/\/wineandeggs.com\/",
+            "shop_2_url": "",
+            "shop_3_url": "",
+            "shop_4_url": "",
+            "shop_5_url": "",
+            "shop_6_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "towns_EaCNQX",
+        "towns_mmb6r3"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "find-us-content"
+  ]
+}

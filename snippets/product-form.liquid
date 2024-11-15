@@ -1,0 +1,88 @@
+<product-form class="product-form">
+  {%- form 'product', product, data-productid: product.id, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+    <input type="hidden" name="id" data-productid="{{ product.id }}" value="{{ product.selected_or_first_available_variant.id }}" disabled>
+    <input type="hidden" type="number" name="quantity" value="1" min="1" />
+
+    {%- if svg_type == 'main-product-merch' or svg_type == 'main-product-pickles'-%}
+      {% assign btn_type = "product-form__button--both" %}
+    {%- elsif svg_type == 'loop-product' -%}
+      {% assign btn_type = "product-form__button--short" %}
+    {%- endif -%}
+
+    <div class="product-form__button {{btn_type}}">
+      {%- if svg_type == 'main-product-merch' or svg_type == 'main-product-pickles' -%}
+        <svg class="product-form__svg product-form__svg--short">
+          <use xlink:href="#add-to-cart-short"></use>
+        </svg>
+
+        <svg class="product-form__svg product-form__svg--long">
+          <use xlink:href="#add-to-cart-long"></use>
+        </svg>
+      {%- elsif svg_type == 'loop-product' -%}
+        <svg class="product-form__svg">
+          <use xlink:href="#add-to-cart-short"></use>
+        </svg>
+      {%- elsif svg_type == 'add-to-cart-home-short' -%}
+        <svg class="product-form__svg">
+          <use xlink:href="#add-to-cart-home-short"></use>
+        </svg>
+      {%- endif -%}
+
+      {% unless product.tags contains 'Coming soon' %}
+        <button
+          type="submit"
+          name="add"
+          class="product-form__submit"
+          {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
+        >
+        </button>
+      {% endunless %}
+
+      <div class="product-form__button-text flex flex-wrap justify-center align-center">
+        {%- if product.selected_or_first_available_variant.available -%}
+          <div class="main-product__price product-text flex flex-wrap aligncenter" id="price-{{ section.id }}">
+            {% if product.tags contains 'Coming soon' %}
+            <a href="/pages/newsletter-landing-page">{{ 'products.product.coming_soon' | t }}</a>
+
+            {% elsif product.tags contains 'Pre-order' %}
+              {{ 'products.product.pre_order' | t }}&nbsp;-&nbsp;
+            {% elsif svg_type == 'home-add-to-cart-variety-pack' or svg_type == 'home-add-to-cart-original-dill' or svg_type == 'home-add-to-cart-honey-harissa' %}
+              <svg class="product-form__svg product-form__svg--xxs">
+                <use xlink:href="#{{ svg_type }}-mobile"></use>
+              </svg>
+
+              <svg class="product-form__svg product-form__svg--md">
+                <use xlink:href="#{{ svg_type }}"></use>
+              </svg>
+              <span>{{ 'products.product.add_to_cart' | t }}</span>
+            {% else %}
+              {{ 'products.product.add_to_cart' | t }}&nbsp;-&nbsp;
+            {% endif %}
+            {% unless product.tags contains 'Coming soon' or svg_type == 'home-add-to-cart-variety-pack' or svg_type == 'home-add-to-cart-original-dill' or svg_type == 'home-add-to-cart-honey-harissa' %}
+              {%- render 'price', product: product, use_variant: true -%}
+            {% endunless %}
+          </div>   
+        {%- else -%}
+          <div class="main-product__price product-text flex flex-wrap" id="price-{{ section.id }}">
+            {% if svg_type == 'home-add-to-cart-variety-pack' or svg_type == 'home-add-to-cart-original-dill' or svg_type == 'home-add-to-cart-honey-harissa' %}
+              <svg class="product-form__svg product-form__svg--xxs">
+                <use xlink:href="#{{ svg_type }}-mobile"></use>
+              </svg>
+
+              <svg class="product-form__svg product-form__svg--md">
+                <use xlink:href="#{{ svg_type }}"></use>
+              </svg>
+            {% endif %}
+              <span>{{ 'products.product.sold_out' | t }}</span>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <div class="product-form__error-message-wrapper legend-text color-red hidden" role="alert" hidden>
+      <br>
+      <span class="product-form__error-message"></span>
+    </div>
+  {%- endform -%}
+</product-form>
+
