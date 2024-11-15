@@ -76,7 +76,8 @@
       }
     </script>
 
-    <script src="{{ 'functions.min.js' | asset_url }}" defer="defer"></script>
+    {% comment %} <script src="{{ 'functions.min.js' | asset_url }}" defer="defer"></script> {% endcomment %}
+    <script src="{{ 'functions.js' | asset_url }}" defer="defer"></script>
 
     <div class="hidden">
       {%- render 'icons' -%}

@@ -1037,13 +1037,34 @@ function changePrices(priceReduction, itemQuantity, originalPrice) {
   newPriceWithQuantity = '$'+newPriceWithQuantity;
 
   prices.forEach(price => {
+   if(document.querySelector('label.is-selected.oneTime')){
     if(itemQuantity > 1 && priceReduction < 1) {
       price.innerHTML = '<s>'+priceWithQuantity+'</s> ';
       price.innerHTML += newPriceWithQuantity;
     } else {
       price.innerHTML = newPriceWithQuantity;
     }
+   }else{
+    let subPrice = priceAmount * itemQuantity * priceReduction * 0.9;
+    price.innerHTML = '<s>'+newPriceWithQuantity+'</s> $'+ subPrice.toFixed(2);
+   }
   });
+
+  //Update purchase option prices
+  if(document.querySelector('.rtx-subscription')) {
+ 
+    const oneTimePurchaseOption = document.querySelector(`span[data-rtx-onetime-price='']`);
+    const subscriptionPurchaseOption = document.querySelector(`span[data-rtx-subscription-price='']`);
+    if(itemQuantity > 1 && priceReduction < 1) {
+      oneTimePurchaseOption.innerHTML ='<s>'+priceWithQuantity+'</s> ' + newPriceWithQuantity;      
+    } else {
+      oneTimePurchaseOption.innerHTML = newPriceWithQuantity;
+    }
+    let subPrice = priceAmount * itemQuantity * priceReduction * 0.9;
+    subscriptionPurchaseOption.innerHTML = '<s>'+newPriceWithQuantity+'</s> $'+ subPrice.toFixed(2);     
+   
+  }
+
 }
 
 function changeQuantityAdded(itemQuantity) {
@@ -1057,6 +1078,7 @@ function changeQuantityAdded(itemQuantity) {
 
 function initPriceWithQuantity() {
   const productSection = document.querySelector('.main-product--pickles');
+
   if(productSection) {
     const quantityItems = document.querySelectorAll('.product-quantity__item:not(.product-quantity__item--picto)');
     const firstQuantityItem = document.querySelector('.product-quantity__item:first-child');

@@ -36,6 +36,7 @@
         </div>
 
         {%- render 'product-quantity', product_handle: product_handle -%}
+        {%- render 'rtx-pdp', product: product, product_form_id: product_form_id -%}
         {%- render 'product-specs' -%}
         {% render 'lazy-asset-img', src: 'pickles.gif', width: 1920, height: 1080, class: 'main-product__picto lazy-img--regular' , alt: 'pickle boy' %}
       </div>
